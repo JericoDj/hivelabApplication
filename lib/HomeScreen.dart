@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: BoxShape.circle,
                   color: Colors.blue,
                 ),
-                child: Image(image: Image.asset("assets/images/logo.png").image)
+                child: Image(image: Image.asset("assets/images/logo.png").image, fit: BoxFit.cover)
               ),
             ),
 

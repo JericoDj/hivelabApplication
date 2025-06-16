@@ -53,19 +53,53 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Column(
         children: [
-          GestureDetector(
-            onTap: (){ navigator?.pushNamed('/second'); },
-            child: Hero(
+          Center(
+            child: GestureDetector(
+              onTap: (){ navigator?.pushNamed('/second'); },
+              child: Hero(
 
-              tag: 'hero-tag',
-              child: Container(
-                child:
-                Image.asset("assets/images/logo.png",
-                    height: 50,
-                    fit: BoxFit.cover),
+                tag: 'hero-tag',
+                child: Container(
+                  child:
+                  Image.asset("assets/images/logo.png",
+                      height: 200,
+                      fit: BoxFit.cover),
+                ),
               ),
             ),
-          )
+          ),
+          Container(
+            child: Text("Welcome to Hive App",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow[800]
+
+              )
+            ),
+          ),
+          SizedBox(height: 20,),
+          Container(
+            decoration: BoxDecoration(
+
+              border: Border.all(
+                color: Colors.yellow[800]!,
+                width: 2
+              ),
+              color: Colors.yellow[800],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            height: 100,
+            width: 200,
+            
+            child: Center(
+                child: Text(
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                    ),
+                    "Check Weather")),)
         ]
 
 
