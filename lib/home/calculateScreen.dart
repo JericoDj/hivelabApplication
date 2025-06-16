@@ -1,36 +1,34 @@
 import "package:flutter/material.dart";
 
-class HomeScreen extends StatefulWidget {
+class CalculateScreen extends StatefulWidget {
 
-  const HomeScreen({super.key, required this.city});
+  const CalculateScreen({super.key, });
 
-  final city;
 
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CalculateScreen> createState() => _CalculateScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CalculateScreenState extends State<CalculateScreen> {
 
 
 
   @override
   Widget build(BuildContext context) {
-    final city = widget.city;
-    final title = "Weather Data";
 
-    if (city == null) {
-      city == "Taguig City";
-    }
+
+
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary ,
         title: Align(
           alignment: Alignment.center,
           child: Text(
-              textAlign: TextAlign.center,
-              title),
+          "Calculated Percentage"
+              ,textAlign: TextAlign.center,
+        ),
         ),
         automaticallyImplyLeading: false,
       ),
@@ -95,9 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
              width: 300,
              child: Text(
                textAlign: TextAlign.center,
-              "Here's the data for the ${widget.city} weather for today!",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                       ),
+              "Here's the data for the  weather for today!",
+              style: TextStyle(
+                  fontSize: 24, fontWeight: FontWeight.bold),
+             ),
            ),
 
         ],
