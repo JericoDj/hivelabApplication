@@ -29,7 +29,12 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key, required this.title});
+  const LoginScreen(
+
+      {super.key, required this.title}
+
+
+      );
 
 
   final String title;
@@ -55,7 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Center(
             child: GestureDetector(
-              onTap: (){ navigator?.pushNamed('/second'); },
+              onTap: () {
+                Navigator.pushNamed(context, '/second');
+              },
               child: Hero(
 
                 tag: 'hero-tag',
@@ -99,7 +106,36 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white
                     ),
-                    "Check Weather")),)
+                    "Check Weather"),
+            ),),
+          SizedBox(height: 20,),
+
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.yellow[800]!,
+                width: 2
+              ),
+
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Icon(Icons.cloud, color: Colors.yellow[800], size: 30),
+                SizedBox(width: 10),
+                Text("Weather Status",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellow[800]
+                  )
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20,),
+
         ]
 
 
