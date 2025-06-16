@@ -8,11 +8,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
+
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final city = Get.arguments ?? "Taguig City";
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginScreen(title: 'Hive App'),
       routes: {
-        '/second': (context) => const HomeScreen(),
+        '/second': (context) => HomeScreen(city: city,),
       },
 
     );
@@ -91,34 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           SizedBox(height: 20,),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, "/second");
-            },
 
-            child: Container(
-              decoration: BoxDecoration(
-
-                border: Border.all(
-                  color: Colors.yellow[800]!,
-                  width: 2
-                ),
-                color: Colors.yellow[800],
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 100,
-              width: 200,
-
-              child: Center(
-                  child: Text(
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
-                      ),
-                      "Check Weather"),
-              ),),
-          ),
           SizedBox(height: 20,),
 
           Container(
@@ -135,20 +112,28 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Icon(Icons.cloud, color: Colors.yellow[800], size: 30),
                 SizedBox(height: 10),
-                TextField(
-                  decoration: InputDecoration(
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  child: TextField(
+                    onChanged: (value){
+                      print(value);
+                    },
+                    decoration: InputDecoration(
 
-                    border: OutlineInputBorder(
+
+                      border: OutlineInputBorder(
 
 
+                      ),
+
+                      labelText: 'Enter City',
+                      counterStyle: context.textTheme.bodySmall,
+                      labelStyle: TextStyle(
+                        color: Colors.black45,
+                        fontSize: 16,
+                      ),
+                      hintText: 'e.g. New York',
                     ),
-                    labelText: 'Enter City',
-                    counterStyle: context.textTheme.bodySmall,
-                    labelStyle: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 16,
-                    ),
-                    hintText: 'e.g. New York',
                   ),
                 ),
 
@@ -156,6 +141,34 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           SizedBox(height: 20,),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, "/second");
+            },
+
+            child: Container(
+              decoration: BoxDecoration(
+
+                border: Border.all(
+                    color: Colors.yellow[800]!,
+                    width: 2
+                ),
+                color: Colors.yellow[800],
+                borderRadius: BorderRadius.circular(10),
+              ),
+              height: 80,
+              width: 200,
+
+              child: Center(
+                child: Text(
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    ),
+                    "Check Weather"),
+              ),),
+          ),
 
         ]
 

@@ -2,9 +2,10 @@ import "package:flutter/material.dart";
 
 class HomeScreen extends StatefulWidget {
 
-  const HomeScreen({super.key, this.city});
+  const HomeScreen({super.key, required this.city});
 
   final city;
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -63,18 +64,27 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.pop(context);
             },
             child: Container(
-
-              padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                  color: Colors.yellow[800],
+
+                border: Border.all(
+                    color: Colors.yellow[800]!,
+                    width: 2
+                ),
+                color: Colors.yellow[800],
                 borderRadius: BorderRadius.circular(10),
               ),
+              height: 80,
+              width: 200,
+
+              child: Center(
                 child: Text(
                     style: TextStyle(
-                      color: Colors.white
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
                     ),
-                    "Check different city")
-            ),
+                    "Check Weather"),
+              ),),
           ),
 
 
